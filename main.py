@@ -8,6 +8,7 @@ async def fetch(sem, session, url, filename):
             async for chunk in response.content.iter_chunked(4096):
                 out.write(chunk)
 
+
 async def fetch_all(urls_and_filenames, loop):
     sem = asyncio.Semaphore(12)
     async with aiohttp.ClientSession(loop=loop, connector=aiohttp.TCPConnector(ssl=False)) as session:
@@ -15,6 +16,7 @@ async def fetch_all(urls_and_filenames, loop):
             *[fetch(sem, session, url, filename) for url, filename in urls_and_filenames]
         )
         return results
+
 
 if __name__ == '__main__':
 
