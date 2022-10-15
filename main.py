@@ -10,7 +10,7 @@ async def fetch(sem, session, url, filename):
 
 
 async def fetch_all(urls_and_filenames, loop):
-    sem = asyncio.Semaphore(12)
+    sem = asyncio.Semaphore(10)
     async with aiohttp.ClientSession(loop=loop, connector=aiohttp.TCPConnector(ssl=False)) as session:
         results = await asyncio.gather(
             *[fetch(sem, session, url, filename) for url, filename in urls_and_filenames]
