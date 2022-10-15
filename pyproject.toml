@@ -4,15 +4,17 @@ version = "0.1.0"
 description = ""
 authors = ["Ruslan Akhmetshin <sccrsccr1@gmail.com>"]
 readme = "README.md"
-packages = [{include = "json_proccesor"}]
+
 
 [tool.poetry.dependencies]
 python = "^3.10"
 aiohttp = "^3.8.3"
-deepdiff = "^5.8.1"
-ijson = "^3.1.4"
+
 
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+json-processor = "scripts.processor:json_processor_runner"
