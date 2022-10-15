@@ -4,6 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Ruslan Akhmetshin <sccrsccr1@gmail.com>"]
 readme = "README.md"
+packages = [{include = "scripts"}]
 
 
 [tool.poetry.dependencies]
